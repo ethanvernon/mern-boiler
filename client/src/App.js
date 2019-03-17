@@ -33,12 +33,18 @@ class App extends Component {
 		}
 	}
 
+	// just a note, here, in the front end, we use the id key of our data object 
+	// in order to identify which we want to Update or delete.
+	// for our back end, we use the object id assigned by MongoDB to modify 
+	// data base entries	
+
 	// our first get method that uses our backend api to 
 	// fetch data from our data base
 	getDataFromDb = () => {
 		fetch("/api/getData")
 			.then(data => data.json())
-			.then(res => this.setState({ data: res.data }));
+			.then(res => this.setState({ data: res.data }))
+			.then(console.log(this.state.data));
 	};
 
 	// our put method that uses our backend api
